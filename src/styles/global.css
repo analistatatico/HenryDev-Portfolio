@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Design System — Dark Developer + Green Tech
+   Abraão Henrique · Full Stack Developer
+   ============================================================ */
+
+@layer base {
+  :root {
+    --bg: #080b0a;
+    --bg-soft: #101613;
+    --card: #141c18;
+    --brand: #00e6a0;
+    --brand-dark: #00b77a;
+    --ink: #f2f5f3;
+    --ink-muted: #9aa7a0;
+    --edge: #26342d;
+    --nav-h: 72px;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-edge;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 16px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    margin: 0;
+    min-height: 100dvh;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-balance;
+  }
+
+  ::selection {
+    background: rgba(0, 230, 160, 0.26);
+    color: #f2f5f3;
+  }
+
+  /* Foco visível e consistente — acessibilidade por teclado.
+     Os seletores incluem o nome do elemento para vencer, em especificidade,
+     as classes de componente (.btn, .card-interactive) sem recorrer a !important. */
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+  }
+
+  /* Scrollbar discreta */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0f0d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1d2a24;
+    border-radius: 999px;
+    border: 2px solid #0b0f0d;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #26342d;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-edge bg-surface-card shadow-card;
+  }
+
+  .card-interactive {
+    @apply card transition-all duration-300 hover:border-brand/40 hover:shadow-glow hover:-translate-y-1;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-edge bg-surface-soft px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted;
+  }
+
+  .chip-brand {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-brand;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold
+           transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-gradient text-[#06251b] hover:brightness-110 hover:shadow-glow active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn border border-edge bg-surface-soft text-ink hover:border-brand/45 hover:text-brand active:scale-[0.98];
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-brand transition-colors hover:text-ink;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0
+           after:bg-brand after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.3em] text-brand;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-edge to-transparent;
+  }
+
+  .prose-ink p {
+    @apply text-[15px] leading-relaxed text-ink-muted sm:text-base;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  /* Grid tecnológico discreto com máscara radial */
+  .bg-tech-grid {
+    background-image: linear-gradient(to right, rgba(38, 52, 45, 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38, 52, 45, 0.5) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 100%);
+  }
+
+  .glow-soft {
+    background: radial-gradient(circle at center, rgba(0, 230, 160, 0.16), transparent 68%);
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
