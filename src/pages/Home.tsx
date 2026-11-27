@@ -23,6 +23,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import { useTypewriter } from '../hooks/useTypewriter';
 import { useAssetAvailable } from '../hooks/useAssetAvailable';
 import { profile } from '../data/profile';
+import { asset } from '../lib/asset';
 import { featuredProjects } from '../data/projects';
 import { work } from '../data/experience';
 
@@ -33,7 +34,8 @@ export function Home() {
   const roles = useMemo(() => t.home.typedRoles, [t.home.typedRoles]);
   const { text: typedText, isStatic } = useTypewriter(roles);
 
-  const resumeAvailable = useAssetAvailable(profile.resumePath);
+  const resumePath = asset(profile.resumePath);
+  const resumeAvailable = useAssetAvailable(resumePath);
 
   return (
     <div>
@@ -125,7 +127,7 @@ export function Home() {
 
                 {/* O download só existe quando o PDF real está publicado. */}
                 {resumeAvailable ? (
-                  <a href={profile.resumePath} download className="btn-ghost">
+                  <a href={resumePath} download className="btn-ghost">
                     <Download size={16} aria-hidden="true" />
                     {t.home.ctaResume}
                   </a>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { profile } from '../data/profile';
+import { asset } from '../lib/asset';
 
 interface ProfilePhotoProps {
   alt: string;
@@ -46,7 +47,7 @@ export function ProfilePhoto({
             </div>
           ) : (
             <img
-              src={profile.photo}
+              src={asset(profile.photo)}
               alt={alt}
               width={size}
               height={size}

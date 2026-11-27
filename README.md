@@ -82,11 +82,12 @@ Sem backend. Sem credenciais. Sem chaves secretas no repositório.
 │   ├── locales/                   # pt.ts (fonte de verdade) · en.ts · index.ts
 │   ├── data/                      # profile.ts · projects.ts · skills.ts · experience.ts
 │   ├── hooks/                     # useLanguage · useGithub · useTypewriter · useReveal...
+│   ├── lib/                       # asset.ts (resolve caminhos públicos com a base)
 │   ├── styles/                    # global.css (design system) · animations.css
 │   ├── App.tsx
 │   └── main.tsx
 ├── tailwind.config.js             # Paleta, tipografia e animações
-└── vite.config.ts                 # base: '/' (repositório de usuário)
+└── vite.config.ts                 # Detecta o base a partir de GITHUB_REPOSITORY
 ```
 
 ---
