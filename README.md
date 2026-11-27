@@ -11,7 +11,7 @@ Transformando ideias em soluções digitais.
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-[Ver o site](https://henrydev.github.io/) · [LinkedIn](https://linkedin.com/in/abraao-henrique-17442930a)
+[Ver o site](https://analistatatico.github.io/) · [LinkedIn](https://linkedin.com/in/abraao-henrique-17442930a)
 
 </div>
 
@@ -38,7 +38,7 @@ metadados de SEO específicos e conteúdo traduzido integralmente.
 | `#/skills` | Stack técnico organizado por área |
 | `#/contact` | Canais diretos e formulário funcional via `mailto:` |
 
-> A navegação usa **HashRouter**. Isso garante que `https://henrydev.github.io/#/projects`
+> A navegação usa **HashRouter**. Isso garante que `https://analistatatico.github.io/#/projects`
 > funcione ao ser aberto diretamente, sem o 404 que o GitHub Pages retornaria em um
 > roteador baseado em caminho.
 
@@ -123,11 +123,11 @@ npm run preview
 
 ## Publicar
 
-O repositório de publicação é **`HenryDev/HenryDev.github.io`**, servido em
-`https://henrydev.github.io/`. Por ser um repositório de usuário, o site é servido
+O repositório de publicação é **`analistatatico/analistatatico.github.io`**, servido em
+`https://analistatatico.github.io/`. Por ser um repositório de usuário, o site é servido
 na raiz do domínio — por isso `vite.config.ts` usa `base: '/'`.
 
-**1.** Envie o código para a branch `main` do repositório `HenryDev/HenryDev.github.io`.
+**1.** Envie o código para a branch `main` do repositório `analistatatico/analistatatico.github.io`.
 
 **2.** No GitHub, ative o Pages uma única vez:
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/HenryDev/HenryDev.github.io/main/public/images/profile.jpg" width="150" style="border-radius:50%" alt="Abraão Henrique" />
+<img src="https://raw.githubusercontent.com/analistatatico/analistatatico.github.io/main/public/images/profile.jpg" width="150" style="border-radius:50%" alt="Abraão Henrique" />
 
 # Abraão Henrique
 
@@ -9,7 +9,7 @@
 *Transformando ideias em soluções digitais.*
 *Turning ideas into digital solutions.*
 
-[![Portfólio](https://img.shields.io/badge/Portfólio-henrydev.github.io-00E6A0?style=for-the-badge&logo=googlechrome&logoColor=black)](https://henrydev.github.io/)
+[![Portfólio](https://img.shields.io/badge/Portfólio-analistatatico.github.io-00E6A0?style=for-the-badge&logo=googlechrome&logoColor=black)](https://analistatatico.github.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/abraao-henrique-17442930a)
 
 </div>
@@ -111,7 +111,7 @@ requisitos, modelagem de dados, regras de negócio e interfaces de uso diário.
 
 `React` · `TypeScript` · `SQL` · `PostgreSQL`
 
-> Mais detalhes de cada projeto em **[henrydev.github.io/#/projects](https://henrydev.github.io/#/projects)**
+> Mais detalhes de cada projeto em **[analistatatico.github.io/#/projects](https://analistatatico.github.io/#/projects)**
 
 ---
 
@@ -133,8 +133,8 @@ requisitos, modelagem de dados, regras de negócio e interfaces de uso diário.
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=HenryDev&show_icons=true&hide_border=true&bg_color=141C18&title_color=00E6A0&icon_color=00E6A0&text_color=9AA7A0" alt="Estatísticas do GitHub" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=HenryDev&layout=compact&hide_border=true&bg_color=141C18&title_color=00E6A0&text_color=9AA7A0" alt="Linguagens mais usadas" />
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=analistatatico&show_icons=true&hide_border=true&bg_color=141C18&title_color=00E6A0&icon_color=00E6A0&text_color=9AA7A0" alt="Estatísticas do GitHub" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=analistatatico&layout=compact&hide_border=true&bg_color=141C18&title_color=00E6A0&text_color=9AA7A0" alt="Linguagens mais usadas" />
 
 </div>
 
@@ -144,9 +144,9 @@ requisitos, modelagem de dados, regras de negócio e interfaces de uso diário.
 
 <div align="center">
 
-[![Portfólio](https://img.shields.io/badge/Portfólio-00E6A0?style=for-the-badge&logo=googlechrome&logoColor=black)](https://henrydev.github.io/)
+[![Portfólio](https://img.shields.io/badge/Portfólio-00E6A0?style=for-the-badge&logo=googlechrome&logoColor=black)](https://analistatatico.github.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/abraao-henrique-17442930a)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HenryDev)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/analistatatico)
 
 **Open to opportunities and collaborations.**
 

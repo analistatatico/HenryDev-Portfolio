@@ -7,26 +7,21 @@
  *             Com valor vazio, os botões de e-mail e o formulário ficam desabilitados.
  *  - `resumePath`: o botão "Download CV" só é habilitado quando o arquivo existir
  *             de fato em `public/files/curriculo.pdf` (verificado em tempo de execução).
- *  - `githubUsername`: ATENÇÃO — o usuário `HenryDev` já existe no GitHub e
- *             pertence a outra pessoa (conta antiga, com repositórios de cursos
- *             de machine learning). Enquanto o username correto não for
- *             confirmado, a seção de atividade do GitHub exibirá dados de
- *             terceiros. Ajuste aqui e, se necessário, desligue a seção com
- *             `showGithubActivity: false`.
+ *  - `githubUsername`: o username é `analistatatico`; "HenryDev" é apenas o nome
+ *             de exibição do perfil. O usuário `HenryDev` no GitHub pertence a
+ *             outra conta e não deve ser usado aqui.
  */
 export const profile = {
   name: 'Abraão Henrique',
   shortName: 'Abraão',
   initials: 'AH',
-  githubUsername: 'HenryDev',
+  githubUsername: 'analistatatico',
 
   /**
    * Liga/desliga a seção de atividade pública do GitHub na Home.
-   * Mantenha `false` até confirmar que `githubUsername` é realmente a conta
-   * do proprietário do portfólio — caso contrário, o site exibiria
-   * repositórios e estatísticas de outra pessoa.
+   * Os dados vêm da API pública da conta definida em `githubUsername`.
    */
-  showGithubActivity: false as boolean,
+  showGithubActivity: true as boolean,
   role: 'Full Stack Developer',
   roleSecondary: 'Software Engineering',
   company: 'DPL Construções',
@@ -40,9 +35,9 @@ export const profile = {
   email: '',
 
   links: {
-    github: 'https://github.com/HenryDev',
+    github: 'https://github.com/analistatatico',
     linkedin: 'https://linkedin.com/in/abraao-henrique-17442930a',
-    website: 'https://henrydev.github.io/',
+    website: 'https://analistatatico.github.io/',
   },
 
   /** Caminho público da fotografia profissional. */

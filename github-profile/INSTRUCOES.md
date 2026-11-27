@@ -9,10 +9,10 @@ aparece na página de perfil do GitHub.
    usuário:
 
    ```
-   HenryDev/HenryDev
+   analistatatico/analistatatico
    ```
 
-   O GitHub mostra a mensagem *"You found a secret! HenryDev/HenryDev is a special
+   O GitHub mostra a mensagem *"You found a secret! analistatatico/analistatatico is a special
    repository"* — é o repositório certo.
 
 2. Marque a opção **Add a README file** ao criar, ou crie o arquivo depois.
@@ -20,21 +20,21 @@ aparece na página de perfil do GitHub.
 3. Copie o conteúdo de `github-profile/README.md` para o `README.md` desse
    repositório e faça commit.
 
-4. Acesse `https://github.com/HenryDev` — o conteúdo aparece no topo do perfil.
+4. Acesse `https://github.com/analistatatico` — o conteúdo aparece no topo do perfil.
 
 ## Atenção aos dois repositórios
 
 | Repositório | Conteúdo | README |
 | --- | --- | --- |
-| `HenryDev/HenryDev.github.io` | Código do portfólio | README técnico do projeto |
-| `HenryDev/HenryDev` | Apenas o README de perfil | Este arquivo |
+| `analistatatico/analistatatico.github.io` | Código do portfólio | README técnico do projeto |
+| `analistatatico/analistatatico` | Apenas o README de perfil | Este arquivo |
 
 Não misture os dois.
 
 ## Pendências antes de publicar
 
-- A imagem do topo aponta para `raw.githubusercontent.com/HenryDev/HenryDev.github.io/main/public/images/profile.jpg`.
+- A imagem do topo aponta para `raw.githubusercontent.com/analistatatico/analistatatico.github.io/main/public/images/profile.jpg`.
   Ela só carrega depois que o repositório do site estiver publicado com a fotografia.
-- Os cartões de estatísticas consultam o usuário `HenryDev`. Confirme que esse é
-  realmente o seu usuário do GitHub antes de publicar — veja a observação no
-  relatório de entrega.
+- Os cartões de estatísticas consultam o usuário `analistatatico` — o username da
+  conta. "HenryDev" é apenas o nome de exibição do perfil; o usuário `HenryDev` no
+  GitHub pertence a outra conta e não deve ser usado em links ou badges.

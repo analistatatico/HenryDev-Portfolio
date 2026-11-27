@@ -2,8 +2,9 @@
 
 **Data:** 27/11/2026
 **Branch:** `claude/amazing-gates-t5dres`
-**Commit:** `d591358`
-**Estado:** implementado, compilado e testado. **Não publicado** (aguardando sua autorização).
+**Commits:** `d591358` · `17a575a` · correção do usuário do GitHub
+**Estado:** implementado, compilado, testado e enviado para o repositório remoto.
+**Pull request:** [#1](https://github.com/analistatatico/HenryDev-Portfolio/pull/1) (draft)
 
 ---
 
@@ -136,31 +137,40 @@ Todos em Chromium headless sobre o build de produção (`npm run preview`).
 
 ## 5. Pendências
 
-### Crítica — usuário do GitHub
+### Resolvida — usuário do GitHub
 
-O usuário **`HenryDev` já existe no GitHub e pertence a outra pessoa**: conta de ID 1912465,
-nome "Henry", com 33 repositórios públicos de cursos de machine learning da Udacity
-(2017–2022). Isso foi confirmado consultando a API pública durante os testes.
+O username correto é **`analistatatico`**. "HenryDev" é apenas o *nome de exibição* do
+perfil, não o identificador da conta.
 
-Consequências:
+Confirmado pela API pública: conta `analistatatico`, nome de exibição "HenryDev", bio
+*"Estudante de Ciência da Computação com experiência prática no desenvolvimento de
+aplicações Full Stack."*, criada em 26/06/2026, dona deste repositório.
 
-- O endereço `https://henrydev.github.io/` **pertence ao dono dessa conta**. Você não
-  conseguirá publicar nesse endereço nem criar `HenryDev/HenryDev.github.io`.
-- Se a seção de atividade do GitHub fosse exibida, o site mostraria repositórios,
-  seguidores e linguagens de outra pessoa como se fossem seus.
+O usuário `HenryDev` no GitHub é de **outra pessoa** (ID 1912465, 33 repositórios de cursos
+de machine learning da Udacity, 2017–2022). Não deve ser usado em links, badges ou consultas
+de API.
 
-Por isso, `src/data/profile.ts` traz `showGithubActivity: false` — a seção fica oculta e o
-site continua íntegro. Para resolver:
+Ajustes aplicados:
 
-1. Confirme qual é o seu usuário real do GitHub.
-2. Ajuste `githubUsername`, `links.github`, `links.website` em `src/data/profile.ts`.
-3. Ajuste a URL canônica em `index.html`, `public/sitemap.xml`, `public/robots.txt` e nos
-   badges de `github-profile/README.md`.
-4. Mude `showGithubActivity` para `true`.
+| Arquivo | Alteração |
+| --- | --- |
+| `src/data/profile.ts` | `githubUsername: 'analistatatico'` · `links.github` · `links.website` · `showGithubActivity: true` |
+| `index.html` | Canônica, `og:url`, `og:image`, `twitter:image`, `schema.org` |
+| `public/sitemap.xml` | 6 URLs |
+| `public/robots.txt` | URL do sitemap |
+| `github-profile/README.md` | Badges, imagem, cartões de estatísticas, links |
+| `github-profile/INSTRUCOES.md` | Nomes dos repositórios |
+| `README.md` | Seção de publicação |
 
-Se o usuário correto for outro (por exemplo `abraaohenrique`), o repositório passa a ser
-`<seu-usuario>/<seu-usuario>.github.io` e o endereço `https://<seu-usuario>.github.io/`.
-`vite.config.ts` continua com `base: '/'`.
+Endereço final do site: **`https://analistatatico.github.io/`**
+Repositório de publicação: **`analistatatico/analistatatico.github.io`**
+Repositório do README de perfil: **`analistatatico/analistatatico`**
+
+A seção de atividade do GitHub foi ligada e exibe dados reais da conta. Hoje são números
+modestos (1 repositório, 1 seguidor, 0 gists) e a barra de linguagens não aparece porque o
+único repositório ainda não tem código na `main`. Isso se resolve sozinho conforme você
+publicar. Se preferir ocultar a seção por enquanto, basta `showGithubActivity: false` em
+`src/data/profile.ts`.
 
 ### Dados ainda não fornecidos
 
@@ -186,30 +196,54 @@ Nenhum desses itens foi inventado.
 
 ## 6. Passos para publicar
 
-**1.** Confirme o usuário do GitHub e ajuste `src/data/profile.ts` (ver pendência crítica).
+O código já está em `analistatatico/HenryDev-Portfolio`, branch `claude/amazing-gates-t5dres`,
+com o PR [#1](https://github.com/analistatatico/HenryDev-Portfolio/pull/1) aberto em draft.
 
-**2.** Autorize o envio desta branch. O commit `d591358` está pronto localmente, mas
-**nada foi enviado** — você pediu para não publicar sem autorização, e o envio foi bloqueado.
+### Opção A — site de usuário na raiz (como você pediu)
+
+Endereço: `https://analistatatico.github.io/`
+
+**1.** Marque o PR #1 como *Ready for review* e faça merge em `main`.
+
+**2.** Crie o repositório público `analistatatico/analistatatico.github.io`.
+
+**3.** Envie o conteúdo para a `main` desse repositório:
 
 ```bash
-git push -u origin claude/amazing-gates-t5dres
+git clone https://github.com/analistatatico/analistatatico.github.io.git
 ```
 
-**3.** Crie o repositório de publicação `<seu-usuario>/<seu-usuario>.github.io` (público).
+```bash
+cp -r /caminho/do/HenryDev-Portfolio/{src,public,.github,index.html,package.json,package-lock.json,vite.config.ts,tsconfig*.json,tailwind.config.js,postcss.config.js,.gitignore,README.md} analistatatico.github.io/
+```
 
-**4.** Envie o conteúdo para a branch `main` desse repositório.
+```bash
+cd analistatatico.github.io && git add -A && git commit -m "feat: portfolio" && git push
+```
 
-**5.** Ative o Pages uma única vez:
+**4.** Ative o Pages uma única vez:
 
 > **Repository Settings → Pages → Build and deployment → Source: GitHub Actions**
 
-**6.** Cada `push` em `main` dispara `.github/workflows/deploy.yml`, que executa `npm ci`,
-verifica os tipos, roda `npm run build` e publica `dist` com `actions/upload-pages-artifact`
-e `actions/deploy-pages`. O workflow também roda manualmente em **Actions → Deploy to GitHub
-Pages → Run workflow**.
+`vite.config.ts` já está com `base: '/'`, que é o correto para site de usuário.
 
-**7.** Para o README de perfil, crie o repositório público `<seu-usuario>/<seu-usuario>` e
-copie `github-profile/README.md` para o `README.md` dele. Instruções detalhadas em
+### Opção B — publicar deste mesmo repositório
+
+Endereço: `https://analistatatico.github.io/HenryDev-Portfolio/`
+
+Mais simples, sem repositório novo. Exige uma alteração em `vite.config.ts`:
+
+```ts
+base: '/HenryDev-Portfolio/',
+```
+
+Depois, merge do PR #1 em `main` e ative o Pages com **Source: GitHub Actions** neste
+repositório. O workflow já dispara em `push` para `main`.
+
+### README de perfil
+
+Crie o repositório público `analistatatico/analistatatico` e copie
+`github-profile/README.md` para o `README.md` dele. Detalhes em
 `github-profile/INSTRUCOES.md`.
 
 ### Executar localmente
