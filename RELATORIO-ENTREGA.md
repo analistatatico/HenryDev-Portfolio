@@ -16,7 +16,7 @@
 | Arquivo | Função |
 | --- | --- |
 | `package.json` | Dependências e scripts (`dev`, `build`, `preview`, `lint`) |
-| `vite.config.ts` | `base: '/'` para repositório de usuário · code splitting em 4 chunks |
+| `vite.config.ts` | Detecção automática do caminho base · code splitting em 4 chunks |
 | `tsconfig.json` · `tsconfig.app.json` · `tsconfig.node.json` | TypeScript estrito |
 | `tailwind.config.js` | Paleta, tipografia, sombras, keyframes e animações |
 | `postcss.config.js` | Tailwind + Autoprefixer |
@@ -30,6 +30,7 @@
 | `locales/` (3) | `pt.ts` (fonte de verdade da tipagem) · `en.ts` · `index.ts` |
 | `data/` (4) | `profile.ts` · `projects.ts` · `skills.ts` · `experience.ts` |
 | `hooks/` (5) | `useLanguage` · `useGithub` · `useTypewriter` · `useReveal` · `useAssetAvailable` |
+| `lib/` (1) | `asset.ts` — resolve caminhos públicos respeitando a base do Vite |
 | `styles/` (2) | `global.css` (design system) · `animations.css` |
 | raiz | `App.tsx` · `main.tsx` |
 
@@ -196,49 +197,49 @@ Nenhum desses itens foi inventado.
 
 ## 6. Passos para publicar
 
-O código já está em `analistatatico/HenryDev-Portfolio`, branch `claude/amazing-gates-t5dres`,
-com o PR [#1](https://github.com/analistatatico/HenryDev-Portfolio/pull/1) aberto em draft.
+O PR [#1](https://github.com/analistatatico/HenryDev-Portfolio/pull/1) foi mergeado em
+`main`. O deploy disparou automaticamente e **falhou no passo `Configure Pages`**:
 
-### Opção A — site de usuário na raiz (como você pediu)
-
-Endereço: `https://analistatatico.github.io/`
-
-**1.** Marque o PR #1 como *Ready for review* e faça merge em `main`.
-
-**2.** Crie o repositório público `analistatatico/analistatatico.github.io`.
-
-**3.** Envie o conteúdo para a `main` desse repositório:
-
-```bash
-git clone https://github.com/analistatatico/analistatatico.github.io.git
+```
+Get Pages site failed. Please verify that the repository has Pages
+enabled and configured to build using GitHub Actions
 ```
 
-```bash
-cp -r /caminho/do/HenryDev-Portfolio/{src,public,.github,index.html,package.json,package-lock.json,vite.config.ts,tsconfig*.json,tailwind.config.js,postcss.config.js,.gitignore,README.md} analistatatico.github.io/
-```
+Não é defeito de código — `npm ci`, verificação de tipos e `npm run build` passaram.
+Falta apenas ativar o Pages, o que só pode ser feito nas configurações do repositório.
 
-```bash
-cd analistatatico.github.io && git add -A && git commit -m "feat: portfolio" && git push
-```
+### Caminho base automático
 
-**4.** Ative o Pages uma única vez:
+O `vite.config.ts` agora deduz a base a partir de `GITHUB_REPOSITORY` no momento do build:
 
-> **Repository Settings → Pages → Build and deployment → Source: GitHub Actions**
+| Repositório | Endereço | `base` |
+| --- | --- | --- |
+| `analistatatico/analistatatico.github.io` | `https://analistatatico.github.io/` | `/` |
+| `analistatatico/HenryDev-Portfolio` | `https://analistatatico.github.io/HenryDev-Portfolio/` | `/HenryDev-Portfolio/` |
 
-`vite.config.ts` já está com `base: '/'`, que é o correto para site de usuário.
+Os dois formatos foram testados em navegador real. Nenhuma edição manual é necessária.
 
-### Opção B — publicar deste mesmo repositório
+### Opção A — publicar deste repositório (mais rápido)
 
-Endereço: `https://analistatatico.github.io/HenryDev-Portfolio/`
+**1.** **Settings → Pages → Build and deployment → Source: GitHub Actions**
 
-Mais simples, sem repositório novo. Exige uma alteração em `vite.config.ts`:
+**2.** **Actions → Deploy to GitHub Pages → Run workflow** (ou faça qualquer push em `main`).
 
-```ts
-base: '/HenryDev-Portfolio/',
-```
+**3.** Site no ar em `https://analistatatico.github.io/HenryDev-Portfolio/`.
 
-Depois, merge do PR #1 em `main` e ative o Pages com **Source: GitHub Actions** neste
-repositório. O workflow já dispara em `push` para `main`.
+### Opção B — site de usuário na raiz
+
+**1.** Crie o repositório público `analistatatico/analistatatico.github.io`.
+
+**2.** Envie o conteúdo deste repositório para a `main` dele.
+
+**3.** Ative o Pages com **Source: GitHub Actions**.
+
+**4.** Site no ar em `https://analistatatico.github.io/`.
+
+> Escolhendo a opção A, ajuste `links.website` em `src/data/profile.ts` e as URLs
+> absolutas de `index.html`, `public/sitemap.xml` e `public/robots.txt` para incluir
+> `/HenryDev-Portfolio/`, de modo que canônicas e Open Graph apontem para o endereço real.
 
 ### README de perfil
 
